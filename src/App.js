@@ -7,7 +7,7 @@ import { Home } from './components/Home';
 //   dangerouslyAllowBrowser: true // defaults to process.env["OPENAI_API_KEY"]
 // });
   
-async function App() {
+function App() {
   
   // const completion = await openai.chat.completions.create({
   //   messages: [{ role: 'user', content: 'Say this is a test' }],
