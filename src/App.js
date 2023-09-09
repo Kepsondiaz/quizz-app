@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import OpenAI from 'openai';
 
-function App() {
-  return (
+const openai = new OpenAI({
+  apiKey: 'your api token',
+  dangerouslyAllowBrowser: true // defaults to process.env["OPENAI_API_KEY"]
+});
+  
+async function App() {
+  
+  const completion = await openai.chat.completions.create({
+    messages: [{ role: 'user', content: 'Say this is a test' }],
+    model: 'gpt-3.5-turbo',
+  });
+  console.log(completion.choices);
+  
+  return (  
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      Quizz app
     </div>
   );
 }
